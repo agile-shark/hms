@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="web-rjroom" namespace="/" extends="base-strtus">
+   		<action name="*RoomsAction" class="roomsAction" method="{1}">
+   			<result name="index">/rooms/${toJsp}.jsp</result>
+   			<result name="success" >/rooms/${folder}/${toJsp}.jsp</result>
+   			<!-- 配置错误页面 -->
+   			<result name="input">/${toJsp}.jsp</result>
+   		</action>
+   		<action name="*roomTypeAction" class="roomTypeAction" method="{1}">
+   			<result name="index">/rooms/${toJsp}.jsp</result>
+   			<result name="success" >/rooms/${folder}/${toJsp}.jsp</result>
+   			<!-- 配置错误页面 -->
+   			<result name="input">/${toJsp}.jsp</result>
+   		</action>
+   		<action name="*roomStateAction" class="roomStateAction" method="{1}">
+   			<result name="index">/rooms/${toJsp}.jsp</result>
+   			<result name="success" >/rooms/${folder}/${toJsp}.jsp</result>
+   			<!-- 配置错误页面 -->
+   			<result name="input">/${toJsp}.jsp</result>
+   		</action>
+   		<action name="*roomScheduleAction" class="roomScheduleAction" method="{1}">
+   			<result name="index">/rooms/${toJsp}.jsp</result>
+   			<result name="success" >/rooms/${folder}/${toJsp}.jsp</result>
+   			<!-- 配置错误页面 -->
+   			<result name="input">/${toJsp}.jsp</result>
+   		</action>
+   		<action name="*roomResideRecordAction" class="roomResideRecordAction" method="{1}">
+   			<result name="index">/rooms/${toJsp}.jsp</result>
+   			<result name="success" >/rooms/${folder}/${toJsp}.jsp</result>
+   			<!-- 配置错误页面 -->
+   			<result name="input">/${toJsp}.jsp</result>
+   		</action>
+   		
+   </package>
+</struts>

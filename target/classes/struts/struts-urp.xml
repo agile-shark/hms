@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="web-urp" namespace="/" extends="base-strtus">
+   		<action name="*RoleAction" class="roleAction" method="{1}">
+   			<result name="success">/jsp/${folder}/${toJsp}.jsp</result>
+   			<!-- 配置错误页面 -->
+   			<result name="input">/${toJsp}.jsp</result>
+   		</action>
+   		<action name="*AccountAction" class="accountAction" method="{1}">
+   			<result name="index">/jsp/${toJsp}.jsp</result>
+   			<result name="success" >/jsp/${folder}/${toJsp}.jsp</result>
+   			<!-- 配置错误页面 -->
+   			<result name="input">/${toJsp}.jsp</result>
+   		</action>
+   		<action name="*ModuleAction" class="moduleAction" method="{1}">
+   			<result name="success">/jsp/${folder}/${toJsp}.jsp</result>
+   			<!-- 配置错误页面 -->
+   			<result name="input">/${toJsp}.jsp</result>
+   		</action>
+   </package>
+</struts>

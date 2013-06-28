@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="cn.com.shxt.rooms.domain">
+	<class name="RoomResideRecord" table="RJ_ROOM_RECORD">
+		<id name="rr_id" column="Rr_ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">SEQ_APP</param>
+			</generator>
+		</id>
+		
+		<property name="rrNum" column="R_NUM" type="string" length="32"/>
+		
+		<property name="rtName" column="RT_NAME" type="string" length="32"/>
+		
+		<property name="rrTime" column="RR_TIME" type="date"/>
+		
+		<property name="rrPName" column="RR_PNAME" type="string" length="32"/>
+		
+		<property name="rrIdcard" column="RR_IDCARD" type="string" length="32"/>
+		
+		<property name="rrPNum" column="RR_PNUM" type="integer" />
+		
+		<property name="rrPreTime" column="RR_PRE_TIME" type="date"/>
+		
+		<property name="rrRealityTime" column="RR_REALITY_TIME" type="date" />
+		
+		<property name="rrDeposit" column="RR_DEPOSIT" type="float" />
+		
+		<property name="rrPreMoney" column="RR_PRE_MONEY" type="float" />
+		
+		<property name="rrRealityMoney" column="RR_REALITY_MONEY" type="float" />
+		
+		<property name="rrDate" column="RR_DATE" type="integer" />
+		
+		<property name="rrMember" column="RR_IS_MEMBER" type="string" length="32"/>
+		
+		<property name="rrBilling" column="RR_BILLING" type="string" length="32"/>
+	
+	
+		
+		
+	</class>
+</hibernate-mapping>

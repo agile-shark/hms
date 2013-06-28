@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="cn.com.shxt.goods.domain">
+	<class name="Goods" table="RJ_COMMODITY">
+		<id name="cd_id" column="CD_ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">SEQ_APP</param>
+			</generator>
+		</id>
+		
+		<property name="goodsSNum" column="CD_SNUM" type="string" length="32"/>
+		
+		<property name="goodsName" column="CD_NAME" type="string" length="32"/>
+		
+		<property name="goodsCode" column="CD_CODE" type="integer"/>
+		
+		<property name="goodsPrice" column="CD_PRICE" type="float"/>
+		
+		<property name="goodsDes" column="CD_DESCRIBE" type="string" length="256"/>
+		
+		<many-to-one name="goodsType" column="CDT_ID" class="GoodsType"/>
+		
+		
+		
+	</class>
+</hibernate-mapping>

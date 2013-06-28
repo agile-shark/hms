@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+         http://www.springframework.org/schema/tx 
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+     <!-- dao -->    
+     <bean id="roomsDao" class="cn.com.shxt.rooms.dao.RoomsDaoImpl" parent="baseDao"/>
+     <bean id="roomTypeDao" class="cn.com.shxt.rooms.dao.RoomTypeDaoImpl" parent="baseDao"/>
+     <bean id="roomStateDao" class="cn.com.shxt.rooms.dao.RoomStateDaoImpl" parent="baseDao"/>
+     <bean id="roomScheduleDao" class="cn.com.shxt.rooms.dao.RoomScheduleDaoImpl" parent="baseDao"/>
+     <bean id="roomResideRecordDao" class="cn.com.shxt.rooms.dao.RoomResideRecordDaoImpl" parent="baseDao"/>
+     
+     
+     <!-- service -->
+     <bean id="roomsService" class="cn.com.shxt.rooms.service.RoomsServiceImpl">
+     	<property name="roomsDao" ref="roomsDao"/>
+     </bean>
+     <bean id="roomTypeService" class="cn.com.shxt.rooms.service.RoomTypeServiceImpl">
+     	<property name="roomTypeDao" ref="roomTypeDao"/>
+     </bean>
+     <bean id="roomStateService" class="cn.com.shxt.rooms.service.RoomStateServiceImpl">
+     	<property name="roomStateDao" ref="roomStateDao"/>
+     </bean>
+     <bean id="roomScheduleService" class="cn.com.shxt.rooms.service.RoomScheduleServiceImpl">
+     	<property name="roomScheduleDao" ref="roomScheduleDao"/>
+     </bean>
+     <bean id="roomResideRecordService" class="cn.com.shxt.rooms.service.RoomResideRecordService">
+     	<property name="roomResideRecordDao" ref="roomResideRecordDao"/>
+     </bean>
+     
+      <!-- action -->   
+     <bean id="roomsAction" class="cn.com.shxt.rooms.action.RoomsAction" scope="prototype">
+     	<property name="roomsService" ref="roomsService"/>
+     	<property name="roomStateService" ref="roomStateService"/>
+     	<property name="roomTypeService" ref="roomTypeService"/>
+     </bean>
+     <bean id="roomTypeAction" class="cn.com.shxt.rooms.action.RoomTypeAction" scope="prototype">
+     	<property name="roomTypeService" ref="roomTypeService"/>
+     </bean>
+     <bean id="roomStateAction" class="cn.com.shxt.rooms.action.RoomStateAction" scope="prototype">
+     	<property name="roomStateService" ref="roomStateService"/>
+     </bean>
+     <bean id="roomScheduleAction" class="cn.com.shxt.rooms.action.RoomScheduleAction" scope="prototype">
+     	<property name="roomScheduleService" ref="roomScheduleService"/>
+     	<property name="roomStateService" ref="roomStateService"/>
+     	<property name="roomsService" ref="roomsService"/>
+     </bean>
+     <bean id="roomResideRecordAction" class="cn.com.shxt.rooms.action.RoomResideRecordAction" scope="prototype">
+     	<property name="roomResideRecordService" ref="roomResideRecordService"/>
+     	<property name="roomStateService" ref="roomStateService"/>
+     	<property name="roomsService" ref="roomsService"/>
+     	<property name="roomTypeService" ref="roomTypeService"/>
+     </bean>  
+</beans>

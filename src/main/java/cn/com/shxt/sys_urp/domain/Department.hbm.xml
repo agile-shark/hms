@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="cn.com.shxt.sys_urp.domain">
+	<class name="Department" table="sys_dept">
+		<id name="dept_id" column="DEPT_ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">SEQ_APP</param>
+			</generator>
+		</id>
+		
+		<property name="dept_name" column="DEPT_NAME" type="string" />
+		
+		<property name="note" column="NOTE" type="string"/>
+		
+		<property name="createtime" column="CREATETIME" type="date"/>
+		
+		<property name="createaccount" column="CREATEACCOUNT" type="string"/>
+		
+		<property name="dept_type" column="DEPT_TYPE" type="integer"/>
+		
+		<set name="deptSets" >
+			<key column="PARENT_ID"/>
+			<one-to-many class="Department"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

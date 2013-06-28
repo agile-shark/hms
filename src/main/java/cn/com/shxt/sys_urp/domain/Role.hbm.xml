@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="cn.com.shxt.sys_urp.domain">
+	<class name="Role" table="sys_role">
+		<id name="role_id" column="ROLE_ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">SEQ_APP</param>
+			</generator>
+		</id>
+		
+		<property name="role_name" column="ROLE_NAME" type="string" />
+		
+		<property name="role_desc" column="ROLE_DESC" type="string"/>
+		
+		<set name="moduleSet" table="role_link_module">
+			<key column="ROLE_ID"/>
+			<many-to-many class="Module" column="MUDULE_ID"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

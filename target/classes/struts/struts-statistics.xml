@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="demo-statistics" namespace="/" extends="json-default">
+	   	<action name="*TestJSONAction" class="jsonAction" method="{1}">
+	    	<result name="json" type="json">
+				<param name="root">jsonResult</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="success">/statistics/Column2D_JSON.jsp</result>
+	   </action>
+   </package>
+	
+  	<package name="web-statistics" namespace="/" extends="json-default">
+	   	<action name="*GoodStatisticsAction" class="goodStatisticsAction" method="{1}">
+	    	<result name="json" type="json">
+				<param name="root">jsonResult</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="success">/statistics/goodStatistics.jsp</result>
+	   </action>
+	   <action name="*RoomStatisticsAction" class="roomStatisticsAction" method="{1}">
+	    	<result name="json" type="json">
+				<param name="root">jsonResult</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="success">/statistics/roomStatistics.jsp</result>
+	   </action>
+   </package>
+
+</struts>

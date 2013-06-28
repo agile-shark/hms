@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+         http://www.springframework.org/schema/tx 
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+     <!-- dao -->    
+     <bean id="moudleDao" class="cn.com.shxt.sys_urp.dao.MoudleDaoImpl" parent="baseDao"/>
+     <bean id="roleDao"  class="cn.com.shxt.sys_urp.dao.RoleDaoImpl" parent="baseDao"/>
+     <bean id="accountDao"  class="cn.com.shxt.sys_urp.dao.AccountDaoImpl" parent="baseDao"/>
+     <bean id="deptDao"  class="cn.com.shxt.sys_urp.dao.DeptDaoImpl" parent="baseDao"/>
+     
+     
+     <!-- service -->
+     <bean id="accountService" class="cn.com.shxt.sys_urp.service.AccountServiceImpl">
+     	<property name="accountDao" ref="accountDao"/>
+     </bean>
+     <bean id="roleService" class="cn.com.shxt.sys_urp.service.RoleServiceImpl">
+     	<property name="roleDao" ref="roleDao"/>
+     </bean>
+     <bean id="moduleService" class="cn.com.shxt.sys_urp.service.ModuleServiceImpl">
+     	<property name="moduleDao" ref="moudleDao"/>
+     </bean>
+     <bean id="deptService" class="cn.com.shxt.sys_urp.service.DeptServiceImpl">
+     	<property name="deptDao" ref="deptDao"/>
+     </bean>
+      
+      <!-- action -->   
+     <bean id="accountAction" class="cn.com.shxt.sys_urp.action.AccountAction" scope="prototype">
+     	<property name="accountService" ref="accountService"/>
+     	<property name="deptService" ref="deptService"/>
+     	<property name="roleService" ref="roleService"/>
+     </bean>  
+     <bean id="roleAction" class="cn.com.shxt.sys_urp.action.RoleAction" scope="prototype">
+     	<property name="roleService" ref="roleService"/>
+     </bean> 
+     <bean id="moduleAction" class="cn.com.shxt.sys_urp.action.ModuleAction" scope="prototype">
+     	<property name="moduleService" ref="moduleService"/>
+     </bean>   
+     
+    <bean id="jsonAction" class="cn.com.shxt.statistics.action.TestJSONAction" scope="prototype">
+    	<property name="resideRecordService" ref="roomResideRecordService"/>
+    	<property name="consumeRecordService" ref="consumeRecordService"/>
+    </bean>
+    
+     <bean id="goodStatisticsAction" class="cn.com.shxt.statistics.action.GoodsStatisticsAction" scope="prototype">
+    	<property name="consumeRecordService" ref="consumeRecordService"/>
+    </bean>
+    
+     <bean id="roomStatisticsAction" class="cn.com.shxt.statistics.action.RoomsStatisticsAction" scope="prototype">
+    	<property name="roomResideRecordService" ref="roomResideRecordService"/>
+    </bean>
+     
+</beans>

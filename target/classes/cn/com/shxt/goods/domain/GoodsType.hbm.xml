@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="cn.com.shxt.goods.domain">
+	<class name="GoodsType" table="RJ_COMMODITY_TYPE">
+		<id name="cdt_id" column="CDT_ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">SEQ_APP</param>
+			</generator>
+		</id>
+		
+		<property name="goodsType" column="CDT_TYPE" type="string" length="32"/>
+		
+		<property name="goodsTypeDes" column="CDT_DESCRIBE" type="string" length="256"/>
+		
+		<set name="goods">
+			<key column="CDT_ID"/>
+			<one-to-many class="Goods" />
+		</set>
+		
+		
+		
+	</class>
+</hibernate-mapping>

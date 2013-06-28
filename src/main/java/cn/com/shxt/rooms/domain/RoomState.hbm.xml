@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="cn.com.shxt.rooms.domain">
+	<class name="RoomState" table="RJ_ROOM_STATE">
+		<id name="roomState_id" column="RS_ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">SEQ_APP</param>
+			</generator>
+		</id>
+				
+		<property name="rsName" column="RS_NAME" type="string" length="64"/>
+		
+		<property name="rsRemark" column="RS_REMARK" type="string" length="256"/>
+		
+		<set name="rooms">
+			<key column="RS_ID"/>
+			<one-to-many class="Rooms" />
+		</set>
+		
+	</class>
+</hibernate-mapping>

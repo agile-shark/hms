@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="cn.com.shxt.rooms.domain">
+	<class name="RoomType" table="RJ_room_type">
+		<id name="roomType_id" column="RT_ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">SEQ_APP</param>
+			</generator>
+		</id>
+		
+		<property name="rtName" column="RT_NAME" type="string" length="32"/>
+		
+		<property name="rtNum" column="RT_NUM" type="string" length="32"/>
+		
+		<property name="rtPrice" column="RT_PRICE" type="float"/>
+		
+		<property name="rtBargain" column="RT_IS_BARGAIN" type="string" length="32"/>
+		
+		<property name="rtBPrice" column="RT_BARGAIN_PRICE" type="float"/>
+		
+		<property name="rtArea" column="RT_AREA" type="string" length="32"/>
+		
+		<property name="rtDiscount" column="RT_DISCOUNT" type="float"/>
+		
+		<property name="rtComputer" column="RT_IS_COMPUTER" type="string" length="32"/>
+		
+		<property name="rtCondition" column="RT_IS_AIR_CONDITION" type="string" length="32"/>
+		
+		<property name="rtWindow" column="RT_IS_WINDOW" type="string" length="32"/>
+		
+		<property name="rtLocation" column="RT_LOCATION" type="string" length="32"/>
+		
+		<property name="rtBNum" column="RT_BED_NUMBER" type="string" length="32"/>
+		
+		<set name="rooms">
+			<key column="RT_ID"/>
+			<one-to-many class="Rooms" />
+		</set>
+		
+	</class>
+</hibernate-mapping>

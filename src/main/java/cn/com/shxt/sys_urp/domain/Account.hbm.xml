@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="cn.com.shxt.sys_urp.domain">
+	<class name="Account" table="sys_account">
+		<id name="account_id" column="ACCOUNT_ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">SEQ_APP</param>
+			</generator>
+		</id>
+		
+		<property name="account" column="ACCOUNT" type="string" />
+		
+		<property name="user_name" column="USER_NAME" type="string"/>
+		
+		<property name="password" column="PASSWORD" type="string"/>
+		
+		<property name="sex" column="SEX" type="integer"/>
+		
+		<property name="telephone" column="TELEPHONE" type="string"/>
+		
+		<property name="position" column="POSITION" type="string"/>
+		
+		<property name="createtime" column="CREATETIME" type="date"/>
+		
+		<property name="createaccount" column="CREATEACCOUNT" type="string"/>
+		
+		<property name="homepage" column="HOMEPAGE" type="string"/>
+		
+		<property name="email" column="EMAIL" type="string"/>
+		
+		<many-to-one name="deptDepartment" class="Department" column="DEPT_ID"/>
+		
+		<set name="roleSet" table="account_link_role">
+			<key column="ACCOUNT_ID"/>
+			<many-to-many class="Role" column="ROLE_ID"/>
+		</set>
+	</class>
+</hibernate-mapping>
