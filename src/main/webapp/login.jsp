@@ -45,7 +45,7 @@
 		
 		</div>
 		<div id="loginBar">
-			<span id="showDate">，欢迎您使用Java Web阶段网站后台管理程序，请登录</span>
+			<span id="showDate">欢迎您使用如家后台管理，请登录</span>
 		</div>
 		<div id="content">
 			<div id="loginForm">

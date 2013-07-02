@@ -104,7 +104,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\t<div id=\"loginBar\">\r\n");
-      out.write("\t\t\t<span id=\"showDate\">，欢迎您使用Java Web阶段网站后台管理程序，请登录</span>\r\n");
+      out.write("\t\t\t<span id=\"showDate\">欢迎您使用如家后台管理，请登录</span>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\t<div id=\"content\">\r\n");
       out.write("\t\t\t<div id=\"loginForm\">\r\n");
